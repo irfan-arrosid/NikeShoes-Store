@@ -1,0 +1,24 @@
+{
+  "name": "nikeshoes-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irfan-arrosid/NikeShoes-Store.git"
+  },
+  "author": "irfan-arrosid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irfan-arrosid/NikeShoes-Store/issues"
+  },
+  "homepage": "https://github.com/irfan-arrosid/NikeShoes-Store#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.8.0"
+  }
+}
