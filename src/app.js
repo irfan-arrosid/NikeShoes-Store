@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const dbPool = require('../src/config/database');
 
-app.get('/', (req, res) => {
-    res.send('Nike Shoes Store')
-})
+const productsRoutes = require('./routes/products');
+
+
+// Middleware
+app.use(express.json());
+//
+
+// Routes
+app.use('/mens-shoes', productsRoutes);
+//
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
