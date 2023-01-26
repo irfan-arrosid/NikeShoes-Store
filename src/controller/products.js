@@ -20,6 +20,26 @@ const createProduct = async (req, res) => {
 }
 //
 
+// GET Controller
+const getAllProducts = async (req, res) => {
+    try {
+        const products = await productsModel.getAllProducts();
+
+        res.status(200).json({
+            message: 'Get all products is success',
+            length: products.rowCount,
+            products: products.rows
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        })
+        console.log(error.message);
+    }
+}
+//
+
 module.exports = {
-    createProduct
+    createProduct,
+    getAllProducts
 }
