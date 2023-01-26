@@ -39,7 +39,28 @@ const getAllProducts = async (req, res) => {
 }
 //
 
+// DELETE Controller
+const deleteProduct = async (req, res) => {
+    const { idProduct } = req.params;
+
+    try {
+        await productsModel.deleteProduct(idProduct);
+
+        res.status(201).json({
+            messaqe: 'Detele product is success',
+            product: null
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        })
+        console.log(error.message);
+    }
+}
+//
+
 module.exports = {
     createProduct,
-    getAllProducts
+    getAllProducts,
+    deleteProduct
 }

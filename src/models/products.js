@@ -12,7 +12,14 @@ const getAllProducts = () => {
     return dbPool.query(SQLQuery);
 }
 
+const deleteProduct = (idProduct) => {
+    const SQLQuery = `DELETE FROM mens_shoes WHERE mshoes_id=${idProduct}`;
+
+    return dbPool.query(SQLQuery);
+}
+
 module.exports = {
     createProduct,
-    getAllProducts
+    getAllProducts,
+    deleteProduct
 };
