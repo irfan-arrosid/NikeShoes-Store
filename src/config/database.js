@@ -1,10 +1,11 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const dbPool = new Pool({
-    host: 'localhost',
-    user: 'irfanarrosid',
-    password: 'at19ir97ar',
-    database: 'nike_store'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 })
 
 dbPool.connect(err => {
