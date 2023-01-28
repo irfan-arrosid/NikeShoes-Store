@@ -59,8 +59,30 @@ const deleteProduct = async (req, res) => {
 }
 //
 
+// UPDATE Controller
+const editProduct = async (req, res) => {
+    const { idProduct } = req.params;
+    const { body } = req;
+
+    try {
+        await productsModel.editProduct(idProduct, body);
+
+        res.status(201).json({
+            message: 'Edit product is success',
+            product: body
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        })
+        console.log(error.message);
+    }
+}
+//
+
 module.exports = {
     createProduct,
     getAllProducts,
-    deleteProduct
+    deleteProduct,
+    editProduct
 }

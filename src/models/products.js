@@ -18,8 +18,15 @@ const deleteProduct = (idProduct) => {
     return dbPool.query(SQLQuery);
 }
 
+const editProduct = (idProduct, body) => {
+    const SQLQuery = `UPDATE mens_shoes SET name='${body.name}', category='${body.category}', colorway=${body.colorway}, price=${body.price} WHERE mshoes_id=${idProduct}`;
+
+    return dbPool.query(SQLQuery);
+}
+
 module.exports = {
     createProduct,
     getAllProducts,
-    deleteProduct
+    deleteProduct,
+    editProduct
 };
