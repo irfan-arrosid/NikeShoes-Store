@@ -37,6 +37,24 @@ const getAllProducts = async (req, res) => {
         console.log(error.message);
     }
 }
+
+const detailProduct = async (req, res) => {
+    const { idProduct } = req.params;
+
+    try {
+        const products = await productsModel.detailProduct(idProduct);
+
+        res.status(200).json({
+            message: 'Get detail product is success',
+            products: products.rows
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        })
+        console.log(error.message);
+    }
+}
 //
 
 // DELETE Controller
@@ -84,5 +102,6 @@ module.exports = {
     createProduct,
     getAllProducts,
     deleteProduct,
-    editProduct
+    editProduct,
+    detailProduct
 }

@@ -12,6 +12,12 @@ const getAllProducts = () => {
     return dbPool.query(SQLQuery);
 }
 
+const detailProduct = (idProduct) => {
+    const SQLQuery = `SELECT * FROM mens_shoes WHERE mshoes_id=${idProduct}`;
+
+    return dbPool.query(SQLQuery);
+}
+
 const deleteProduct = (idProduct) => {
     const SQLQuery = `DELETE FROM mens_shoes WHERE mshoes_id=${idProduct}`;
 
@@ -28,5 +34,6 @@ module.exports = {
     createProduct,
     getAllProducts,
     deleteProduct,
-    editProduct
+    editProduct,
+    detailProduct
 };
