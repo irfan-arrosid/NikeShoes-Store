@@ -4,7 +4,6 @@ const PORT = 3000;
 
 const productsRoutes = require('./routes/products');
 
-
 // Middleware
 app.use(express.json());
 //

@@ -30,10 +30,17 @@ const editProduct = (idProduct, body) => {
     return dbPool.query(SQLQuery);
 }
 
+const getByCategory = (categoryProduct) => {
+    const SQLQuery = `SELECT * FROM mens_shoes WHERE category='${categoryProduct}'`;
+
+    return dbPool.query(SQLQuery);
+}
+
 module.exports = {
     createProduct,
     getAllProducts,
     deleteProduct,
     editProduct,
-    detailProduct
+    detailProduct,
+    getByCategory
 };
