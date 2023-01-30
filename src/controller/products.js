@@ -38,28 +38,28 @@ const getAllProducts = async (req, res) => {
     }
 }
 
-// const detailProduct = async (req, res) => {
-//     const { idProduct } = req.params;
+const detailProduct = async (req, res) => {
+    const { idProduct } = req.params;
 
-//     try {
-//         const products = await productsModel.detailProduct(idProduct);
+    try {
+        const products = await productsModel.detailProduct(idProduct);
 
-//         res.status(200).json({
-//             message: 'Get detail product is success',
-//             products: products.rows
-//         })
-//     } catch (error) {
-//         res.status(400).json({
-//             message: error.message
-//         })
-//         console.log(error.message);
-//     }
-// }
+        res.status(200).json({
+            message: 'Get detail product is success',
+            products: products.rows
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        })
+        console.log(error.message);
+    }
+}
 
 const getByCategory = async (req, res) => {
     const { category } = req.params;
     
-    const apaya = (category) => {
+    const categories = (category) => {
         switch (category) {
             case 'running':
                 return 'Running Shoes';
@@ -76,7 +76,7 @@ const getByCategory = async (req, res) => {
         }
     };
 
-    const categoryProduct = apaya(category);
+    const categoryProduct = categories(category);
 
     try {
         const products = await productsModel.getByCategory(categoryProduct);
@@ -141,6 +141,6 @@ module.exports = {
     getAllProducts,
     deleteProduct,
     editProduct,
-    // detailProduct,
+    detailProduct,
     getByCategory
 }
