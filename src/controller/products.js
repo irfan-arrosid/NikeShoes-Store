@@ -93,6 +93,24 @@ const getByCategory = async (req, res) => {
         console.log(error.message);
     }
 }
+
+const sortByPrice = async (req, res) => {
+    const { body } = req;
+
+    try {
+        const data = await productsModel.sortByPrice(body);
+        res.status(200).json({
+            message: 'Sorting by price is success',
+            length: data.rowCount,
+            data: data.rows
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        })
+        console.log(error.message);
+    }
+}
 //
 
 // DELETE Controller
@@ -142,5 +160,6 @@ module.exports = {
     deleteProduct,
     editProduct,
     detailProduct,
-    getByCategory
+    getByCategory,
+    sortByPrice
 }

@@ -36,11 +36,18 @@ const getByCategory = (categoryProduct) => {
     return dbPool.query(SQLQuery);
 }
 
+const sortByPrice = (body) => {
+    const SQLQuery = `SELECT * FROM mens_shoes ORDER BY price ${body.sortBy}`;
+
+    return dbPool.query(SQLQuery);
+}
+
 module.exports = {
     createProduct,
     getAllProducts,
     deleteProduct,
     editProduct,
     detailProduct,
-    getByCategory
+    getByCategory,
+    sortByPrice
 };
